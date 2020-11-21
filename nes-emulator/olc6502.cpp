@@ -222,7 +222,7 @@ uint8_t olc::REL() {
 
 uint8_t olc::fetch() {
     if(!(lookup[opcode].addrmode == &olc::IMP)) {
-        fetched = addr_abs;
+        fetched = (uint8_t)addr_abs;
     }
     return fetched;
 }

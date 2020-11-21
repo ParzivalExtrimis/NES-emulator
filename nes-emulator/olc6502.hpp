@@ -1,6 +1,8 @@
 #pragma once
 #define olc olc6502
 
+#define _CRT_SECURE_NO_DEPRECATE
+
 #define LOGMODE
 #ifdef LOGMODE
 #include <stdio.h>
