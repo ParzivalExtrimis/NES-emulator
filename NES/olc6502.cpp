@@ -906,7 +906,7 @@ bool olc::complete() {
 
 //disassembler.
 
-std::map<uint16_t, std::string> disassembler(uint16_t nStart, uint16_t nStop) {
+std::map<uint16_t, std::string> olc::disassembler(uint16_t nStart, uint16_t nStop) {
    uint32_t addr = nStart;
    uint8_t val = 0x00, lo = 0x00, hi = 0x00;
    std::map<uint16_t, std::string> maplines;
