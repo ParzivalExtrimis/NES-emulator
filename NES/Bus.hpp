@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <array>
 
-#include "olc6502.hpp"
+#include "arch6502.hpp"
 
 class Bus {
 public:
@@ -11,7 +11,7 @@ public:
    ~Bus();
    
 public:
-   olc6502 cpu;
+   arch6502 cpu;
    
    //virtual ram as memory buffer
    std::array<uint8_t, 64 * 1024> ram;

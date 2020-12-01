@@ -1,5 +1,5 @@
 #pragma once
-#define olc olc6502
+#define arch arch6502
 
 #define _CRT_SECURE_NO_DEPRECATE
 
@@ -15,10 +15,10 @@
 
 class Bus;
 
-class olc6502 {
+class arch6502 {
 public:
-   olc6502();
-   ~olc6502();
+   arch6502();
+   ~arch6502();
    
 public:
    
@@ -40,7 +40,7 @@ public:
    bool complete();
    
    //disassembler
-   std::map<uint16_t, std::string> disassembler(uint16_t nStart, uint16_t nStop);
+   std::map<uint16_t, std::string> disassemble(uint16_t nStart, uint16_t nStop);
    
    //adds a connect pin to bus
    void connectBus(Bus* n) { bus = n; }
@@ -81,8 +81,8 @@ private:
    //Instruction struct to represent input
    struct INSTRUCTION {
        std::string name; // key string to refrence disassembler.
-       uint8_t (olc::*operate)(void) = nullptr;
-       uint8_t (olc::*addrmode)(void) = nullptr;
+       uint8_t (arch::*operate)(void) = nullptr;
+       uint8_t (arch::*addrmode)(void) = nullptr;
        uint8_t cycles = 0;
    };
    
@@ -93,7 +93,7 @@ private:
    //addressing mode functions:
    
    uint8_t IMP();    uint8_t IMM();
-   uint8_t ZP0();    uint8_t ZPX();
+   uint8_t ZPO();    uint8_t ZPX();
    uint8_t ZPY();    uint8_t REL();
    uint8_t ABS();    uint8_t ABX();
    uint8_t ABY();    uint8_t IND();

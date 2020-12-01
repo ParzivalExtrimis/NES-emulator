@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Bus.hpp"
-#include "olc6502.hpp"
+#include "arch6502.hpp"
 #include "olcPixelGameEngine.h"
 
 #define OLC_PGE_APPLICATION
@@ -64,12 +64,12 @@ public:
          std::string byte;
          ss >> byte;
 
-         nes.cpu.ram[nOffset++] = std::stoul(byte, nullptr, 16);
+         nes.ram[nOffset++] = std::stoul(byte, nullptr, 16);
       }
 
       //set vectors
-      nes.cpu.ram[0xFFFC] = 0x00;
-      nes.cpu.ram[0xFFFD] = 0x80;
+      nes.ram[0xFFFC] = 0x00;
+      nes.ram[0xFFFD] = 0x80;
 
       nes.cpu.disassemble(0x0000, 0xFFFF);
 
